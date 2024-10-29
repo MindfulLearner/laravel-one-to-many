@@ -38,6 +38,10 @@
               <span>$ {{ $product->price }}</span>
               <img src="/icone/price-icon.png" alt="coin" class="w-5 h-5">
             </div>
+            {{-- type --}}
+            {{-- //FIXME: non funziona --}}
+            <p class="font-medium mb-2">Tipo:</p>
+            <p class="text-gray-300">{{ $product->type->title }}</p>
           </div>
 
           <div class="bg-gray-800 p-4 rounded-lg">

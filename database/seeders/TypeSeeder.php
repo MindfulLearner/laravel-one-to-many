@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Type;
 use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Schema;
 class TypeSeeder extends Seeder
 {
     /**
@@ -12,6 +14,18 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
+
+        // Schema::disableForeignKeyConstraints();
+        // // truncate the table before seeding
+        // Type::truncate();
+        // Schema::enableForeignKeyConstraints();
+
+
+        // oppure
+        Schema::withoutForeignKeyConstraints(function () {
+            Type::truncate();
+        });
+
         // creo 5 tipi di prodotti
         $allTypes = [
             'Food',
