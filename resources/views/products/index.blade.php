@@ -3,6 +3,18 @@
 @section('content')
   <div class="text-white p-5">
       <h1 class="font-semibold text-xl">Products</h1>
+      {{-- //TODO filtro per tipo, problem! non funziona --}}
+      <form action="{{ route('products.filter') }}" method="GET">
+      <select name="type" id="type" class="bg-gray-800 p-2 rounded-md">
+        <option value="">Tutti</option>
+        @foreach ($products->unique('type_id') as $product)
+          <option value="{{ $product->type->id }}">{{ $product->type->title }}</option>
+        @endforeach
+      </select>
+        <button type="submit" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
+          Filtra
+        </button>
+      </form>
   </div>
   <div>
     @foreach ($products as $product)
@@ -39,7 +51,6 @@
               <img src="/icone/price-icon.png" alt="coin" class="w-5 h-5">
             </div>
             {{-- type --}}
-            {{-- //FIXME: non funziona --}}
             <p class="font-medium mb-2">Tipo:</p>
             <p class="text-gray-300">{{ $product->type->title }}</p>
           </div>

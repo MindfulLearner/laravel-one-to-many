@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            // TODO: do foreign key for type of product, a product can have only one type but a type can have many products
+            //  a product can have only one type but a type can have many products
             // $table->unsignedBigInteger('type_id');
 
             // $table->foreign('type_id')->references('id')->on('types');

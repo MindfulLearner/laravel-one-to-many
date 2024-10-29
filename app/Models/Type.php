@@ -14,6 +14,6 @@ class Type extends Model
     // creo un one to many relationship con la tabella products
     public function products()
     {
-        return $this->hasOne(Product::class);
+        return $this->hasMany(Product::class);
     }
 }

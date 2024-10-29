@@ -29,6 +29,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('products', ProductController::class);
     Route::resource('types', TypeController::class);
+
+    Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
+
+
  
 });
 
