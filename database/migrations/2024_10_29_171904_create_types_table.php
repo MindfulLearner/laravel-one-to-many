@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+
+        // creo la tabella types questo sara un one to many relationship con la tabella products
+        
+
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('slug')->nullable();
-            $table->string('name');
-            $table->text('description');
-            $table->decimal('price', 8, 2);
-            $table->string('cover_image', 2048)->nullable();
-            $table->integer('likes')->unsigned()->default(0);
-            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }
@@ -29,7 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('types');
     }
 };
