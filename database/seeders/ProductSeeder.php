@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
+use App\Models\Type;
 
 class ProductSeeder extends Seeder
 {
@@ -19,6 +20,8 @@ class ProductSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $name = fake()->sentence(2);
             $slug = self::createSlug($name);
+
+         
             Product::create([
                 // creating slug from name
                 'slug' => $slug,
@@ -29,7 +32,8 @@ class ProductSeeder extends Seeder
                 'cover_image' => fake()->optional()->imageUrl(640, 480, 'animals'),
                 'likes' => fake()->numberBetween(0, 100),
                 'published' => fake()->boolean(),
-                'type_id' => fake()->numberBetween(1, 5)
+                // random type  passed from type table abbiamo preso id perche type_id e una foreign key
+                'type_id' => Type::inRandomOrder()->first()->id
             ]);
         }
     }

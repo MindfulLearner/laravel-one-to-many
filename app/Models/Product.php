@@ -19,6 +19,12 @@ class Product extends Model
         'type_id'
     ];
 
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
