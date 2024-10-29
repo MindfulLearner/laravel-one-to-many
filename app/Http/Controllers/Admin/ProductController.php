@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    /**
+     * Filtra i prodotti in base al tipo
+     */
+    public function filter(Request $request)
+    {
+        $products = Product::where('type_id', $request->type)->get();
+
+        return view('products.index', compact('products'));
+    }
+
+
     /**
      * Display a listing of the resource.
      */

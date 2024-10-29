@@ -3,8 +3,8 @@
 @section('content')
   <div class="text-white p-5">
       <h1 class="font-semibold text-xl">Products</h1>
-      {{-- //TODO filtro per tipo --}}
-      <form action="{{ route('products.index') }}" method="GET">
+      {{-- //TODO filtro per tipo, problem! non funziona --}}
+      <form action="{{ route('products.filter') }}" method="GET">
       <select name="type" id="type" class="bg-gray-800 p-2 rounded-md">
         <option value="">Tutti</option>
         @foreach ($products->unique('type_id') as $product)
