@@ -11,7 +11,6 @@ class ProductController extends Controller
 {
 public function indexFiltered(Request $request)
 {
-    dd($request->type);
 
     $query = Product::query();
     
