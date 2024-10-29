@@ -4,11 +4,13 @@
   <div class="text-white p-5">
       <h1 class="font-semibold text-xl">Products</h1>
       {{-- //TODO filtro per tipo, problem! non funziona --}}
-      <form action="{{ route('products.filter') }}" method="GET">
+      <form action="{{ route('products.indexFiltered') }}" method="GET">
       <select name="type" id="type" class="bg-gray-800 p-2 rounded-md">
         <option value="">Tutti</option>
-        @foreach ($products->unique('type_id') as $product)
-          <option value="{{ $product->type->id }}">{{ $product->type->title }}</option>
+        @foreach ($types as $type)
+            <option value="{{ $type->id }}">
+                {{ $type->title }}
+            </option>
         @endforeach
       </select>
         <button type="submit" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
