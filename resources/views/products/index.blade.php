@@ -10,10 +10,10 @@
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl font-semibold">{{ $product->name }}</h2>
           <div class="flex gap-2">
-            <a href="{{ route('products.show', $product['id']) }}" class="bg-green-800 px-4 py-2 rounded-md text-center hover:bg-green-700">
+            <a href="{{ route('products.show', $product['slug']) }}" class="bg-green-800 px-4 py-2 rounded-md text-center hover:bg-green-700">
               Info
             </a>
-            <a href="{{ route('products.edit', $product['id']) }}" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
+            <a href="{{ route('products.edit', $product['slug']) }}" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
               Edit
             </a>
             <form action="{{ route('products.destroy', $product['id']) }}" method="POST">

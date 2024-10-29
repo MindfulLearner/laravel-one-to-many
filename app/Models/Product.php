@@ -17,4 +17,9 @@ class Product extends Model
         'published',
         'slug'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
