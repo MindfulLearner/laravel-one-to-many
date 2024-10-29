@@ -29,7 +29,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('products', ProductController::class);
 
-    Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
  
 });
 

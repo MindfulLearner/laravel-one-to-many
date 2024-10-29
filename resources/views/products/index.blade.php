@@ -16,7 +16,7 @@
             <a href="{{ route('products.edit', $product['slug']) }}" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
               Edit
             </a>
-            <form action="{{ route('products.destroy', $product['id']) }}" method="POST">
+            <form action="{{ route('products.destroy', $product->slug) }}" method="POST">
               @csrf
               @method('DELETE')
               <button type="submit" class="bg-red-800 px-4 py-2 rounded-md text-center hover:bg-red-700 deleteButton">

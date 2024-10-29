@@ -19,7 +19,7 @@
 
     <h1 class="text-2xl font-bold mb-6 text-white">Modifica Prodotto</h1>
 
-    <form action="{{ route('products.update', $product['id']) }}" method="POST"  class="space-y-4 text-white">
+    <form action="{{ route('products.update', $product->slug) }}" method="POST"  class="space-y-4 text-white">
         @csrf
         @method('PUT')
 
