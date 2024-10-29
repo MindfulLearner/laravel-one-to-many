@@ -5,29 +5,33 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
-
+use App\Models\Type;
 
 class ProductController extends Controller
 {
+public function indexFiltered(Request $request)
+{
 
-    /**
-     * Filtra i prodotti in base al tipo
-     */
-    public function filter(Request $request)
-    {
-        $products = Product::where('type_id', $request->type)->get();
-
-        return view('products.index', compact('products'));
+    $query = Product::query();
+    
+    if ($request->type) {
+        $query->where('type_id', $request->type);
     }
-
+    
+    $products = $query->get();
+    $types = Type::get();
+    
+    return view('products.index', compact('products', 'types'));
+}
 
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::get();
-        return view('products.index', compact('products')); // pass the products to the view
+        $types = Type::get();
+        return view('products.index', compact('products', 'types')); // pass the products to the view
     }
 
     /**

@@ -6,7 +6,7 @@
     <a href="{{ route('products.index') }}" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
       Indietro
     </a>
-    <a href="{{ route('products.edit', $product['id']) }}" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
+    <a href="{{ route('products.edit', $product['slug']) }}" class="bg-blue-800 px-4 py-2 rounded-md text-center hover:bg-blue-700">
       Modifica
     </a>
   </div>
