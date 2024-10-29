@@ -28,7 +28,8 @@ class ProductSeeder extends Seeder
                 'price' => fake()->randomFloat(2, 1, 100),
                 'cover_image' => fake()->optional()->imageUrl(640, 480, 'animals'),
                 'likes' => fake()->numberBetween(0, 100),
-                'published' => fake()->boolean()
+                'published' => fake()->boolean(),
+                'type_id' => fake()->numberBetween(1, 5)
             ]);
         }
     }
