@@ -13,8 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ProductSeeder::class,
+            // ho messo questo prima di product seeder perche product dipende da type
             TypeSeeder::class,
+            ProductSeeder::class,
+         
         ]);
 
     }

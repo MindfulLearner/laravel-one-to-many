@@ -13,12 +13,23 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             // TODO: do foreign key for type of product, a product can have only one type but a type can have many products
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            // $table->unsignedBigInteger('type_id');
 
+            // $table->foreign('type_id')->references('id')->on('types');
+         
+            $table->foreignId('type_id')->nullable()->constrained();
 
             // si puo anche usare il seguente comando per creare la foreign key
             // $table->foreignId('type_id')->constrained()->onDelete('cascade'); eventualmente , costrained significa che la colonna type_id e una foreign key che si riferisce alla tabella types e se viene cancellata la tabella types vengono cancellati anche i prodotti associati mentre cascade significa che se viene cancellato il tipo di prodotto vengono cancellati anche i prodotti associati
+
+
+            // si puo usare 
+            // $table->
+            // foreignId('type_id')->
+            // after('published')->
+            // constrained();
+
+
 
         });
     }
