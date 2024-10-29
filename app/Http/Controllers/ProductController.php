@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
 
 
-
+        // validazione dei dati
         $request->validate([
             'name' => 'required | string',
             'description' => 'required | string',
