@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TypeController;
 
-use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('products', ProductController::class);
-
+    Route::resource('types', TypeController::class);
  
 });
 
