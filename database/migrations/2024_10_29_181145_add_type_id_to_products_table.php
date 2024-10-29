@@ -30,7 +30,12 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             // per eliminare la tabella perche rollback non elimina le foreign key si fa cosi  si puo fare dal terminale con php artisan migrate:rollback
-            Schema::dropForeign(['type_id']);
+            // oppure products_type_id_foreignanziche [type_id]
+
+
+            // prima rimuove il vincolo di foreign key poi la colonna
+            $table->dropForeign(['type_id']);
+            // e poi esegue il drop della colonna
             $table->dropColumn('type_id');
         });
     }
