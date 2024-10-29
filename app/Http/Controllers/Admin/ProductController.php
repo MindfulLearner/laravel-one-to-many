@@ -11,13 +11,16 @@ class ProductController extends Controller
 {
 public function indexFiltered(Request $request)
 {
-
+    //'quello che succede  qui e'
     $query = Product::query();
-    
+    // query prende il tipo di prodotto e lo filtra
+
+    // questo if filtra i prodotti in base al tipo di prodotto
     if ($request->type) {
         $query->where('type_id', $request->type);
     }
-    
+
+    // questo prende i prodotti filtrati e li passa alla view
     $products = $query->get();
     $types = Type::get();
     
